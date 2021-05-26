@@ -332,6 +332,12 @@
                   <li>
                     <a href="#error-logging" class="toc-h2 toc-link" data-title="Error Logging">Error Logging</a>
                   </li>
+                  <li>
+                    <a href="#get-notified-of-visitors-or-milestones" class="toc-h2 toc-link" data-title="Get Notified of Visitors or Milestones">Get Notified of Visitors or Milestones</a>
+                  </li>
+                  <li>
+                    <a href="#automation" class="toc-h2 toc-link" data-title="Automation">Automation</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -369,7 +375,7 @@
 <p>With the project name you choose during set up, you can make your first API call.</p>
 
 <aside class="notice">
-<em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification with only your project name as the title.
+<em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification.
 </aside>
 <h2 id='send-a-custom-notification'>Send a Custom Notification</h2>
 <blockquote>
@@ -447,19 +453,77 @@
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="k">try</span> <span class="p">{</span>
+  <span class="c1">// Example of code with error:</span>
     <span class="nx">nonExistant</span><span class="p">.</span><span class="nx">prop</span>
 <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
-  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;\
-    &amp;title=Error!&amp;body=</span><span class="p">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">toString</span><span class="p">()}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=Error!&amp;body=</span><span class="p">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">toString</span><span class="p">()}</span><span class="s2">`</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 <blockquote>
-<p>This will send a notification if an error occurs</p>
+<p>This will send a notification if an error occurs in the try block</p>
 </blockquote>
 
 <p>Error catching and logging is only useful if someone is checking those logs. Many edge case bugs may be missed because this arise much later in a project&#39;s life span. </p>
 
 <p>With NotiBot, you will be instantly notified if an error does arise later on.</p>
+<h2 id='get-notified-of-visitors-or-milestones'>Get Notified of Visitors or Milestones</h2>
+<blockquote>
+<p>Get notified of visitors: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// handle account creation...</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">isPremium</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> created an account!&amp;body=</span><span class="p">${</span><span class="nx">isPremium</span><span class="p">?</span><span class="s2">`They are have signed up for Premium!`</span><span class="p">:</span><span class="s2">`They signed up for the free plan`</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<blockquote>
+<p>Get notified of milestones: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
+<span class="c1">// let totalUsers be some kind of persistent storage variable</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// handle account creation...</span>
+  <span class="nx">totalUsers</span><span class="o">++</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">totalUsers</span><span class="o">%</span><span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=You hit </span><span class="p">${</span><span class="nx">totalUsers</span><span class="p">}</span><span class="s2"> total users!&amp;body=🎉🎈🥳`</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>You can use NotiBot for easy growth monitoring. </p>
+
+<p>Know exactly when to pop open that bottle of champaign 🍾! </p>
+
+<p>Or know whether that friend who swore they would download your app actually installed it 😉.</p>
+<h2 id='automation'>Automation</h2>
+<blockquote>
+<p>Know when a task finishes: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">makeMeSomeHotCoco</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(()</span><span class="o">=&gt;</span><span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=Hot coco finished!&amp;body=Time to drink up!\n☕☕☕`</span><span class="p">))</span>
+</code></pre></div>
+<blockquote>
+<p>Start a task: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/makeCoco</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Code to make Coco...</span>
+<span class="p">})</span>
+<span class="nx">cron</span><span class="p">.</span><span class="nx">schedule</span><span class="p">(</span><span class="dl">'</span><span class="s1">0 8 * * *</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="c1">// Run every day at 8am</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=Want some hot coco?&amp;body=Respond to this notification with the webhook trigger to start making the coco 👇&amp;webhook=&lt;server address&gt;/makeCoco`</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>You will get a prompt for hot coco every day at 8am. The notification will also include a quick action that will make a call to whatever webhook you specified.</p>
+</blockquote>
+
+<p>NotiBot is built first and foremost for developers, so you can integrate it into your work, hobbies or daily life in anyway your heart desires. </p>
+
+<p>Especially when automating tasks, it can be useful to be able to get reliable and timely information. NotiBot makes keeping yourself in the loop easy.</p>
 
       </div>
       <div class="dark-box">
