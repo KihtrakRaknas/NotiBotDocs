@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>NotiBot API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -356,8 +356,8 @@
 <blockquote>
 <p>To send a notification:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/proj<span class="o">=</span>&lt;PROJECT NAME&gt;
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/proj=&lt;PROJECT NAME&gt;</span><span class="dl">"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/?project<span class="o">=</span>&lt;PROJECT NAME&gt;
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;</span><span class="dl">"</span><span class="p">)</span>
 <span class="c1">// Note: If you are using this code on a website, </span>
 <span class="c1">// make sure the site's CORS headers will allow the</span>
 <span class="c1">// request to go through.</span>
@@ -366,21 +366,21 @@
 <p>It&#39;s that simple!</p>
 </blockquote>
 
-<p>With the project name you choose in the previous step, you can make your first API call.</p>
+<p>With the project name you choose during set up, you can make your first API call.</p>
 
 <aside class="notice">
-proj is the only required URL parameter. Without any other parameters you will get a empty notification with only your project name as the title.
+<em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification with only your project name as the title.
 </aside>
 <h2 id='send-a-custom-notification'>Send a Custom Notification</h2>
 <blockquote>
 <p>To send a notification:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/proj<span class="o">=</span>&lt;PROJECT NAME&gt;<span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/?project<span class="o">=</span>&lt;PROJECT NAME&gt;<span class="se">\</span>
 &amp;title<span class="o">=</span>&lt;OPTIONAL NOTIFICATION TITLE&gt;<span class="se">\</span>
 &amp;body<span class="o">=</span>&lt;OPTIONAL NOTIFICATION BODY&gt;<span class="se">\</span>
 &amp;webhook<span class="o">=</span>&lt;OPTIONAL WEBHOOK&gt;<span class="se">\</span>
 &amp;webhookParam<span class="o">=</span>&lt;<span class="nb">true</span>/false&gt;
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/proj=&lt;PROJECT NAME&gt;</span><span class="se">\</span><span class="s2">
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;</span><span class="se">\</span><span class="s2">
 &amp;title=&lt;OPTIONAL NOTIFICATION TITLE&gt;</span><span class="se">\</span><span class="s2">
 &amp;body=&lt;OPTIONAL NOTIFICATION BODY&gt;</span><span class="se">\</span><span class="s2">
 &amp;webhook=&lt;OPTIONAL WEBHOOK&gt;</span><span class="se">\</span><span class="s2">
@@ -416,13 +416,13 @@ proj is the only required URL parameter. Without any other parameters you will g
 </tr>
 </thead><tbody>
 <tr>
-<td>proj</td>
+<td>project</td>
 <td>required</td>
 <td>The name of the project this notification should be sent to.</td>
 </tr>
 <tr>
 <td>title</td>
-<td><em>proj</em></td>
+<td><em>project</em></td>
 <td>The title that appears on the notification.</td>
 </tr>
 <tr>
@@ -449,7 +449,7 @@ proj is the only required URL parameter. Without any other parameters you will g
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="k">try</span> <span class="p">{</span>
     <span class="nx">nonExistant</span><span class="p">.</span><span class="nx">prop</span>
 <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
-  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/proj=&lt;PROJECT NAME&gt;\
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;\
     &amp;title=Error!&amp;body=</span><span class="p">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">toString</span><span class="p">()}</span><span class="s2">`</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
