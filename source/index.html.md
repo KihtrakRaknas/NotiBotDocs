@@ -147,6 +147,8 @@ app.post('/createUser', (req, res) => {
 })
 ```
 
+>
+
 ![notification celebrating an app milestone](PROJECT%20NAME%20notification.png)
 
 ### Or know whether that friend who swore they would download your app actually installed it 😉.
@@ -163,6 +165,8 @@ app.post('/createUser', (req, res) => {
   fetch(`https://n.kihtrak.com/?project=<PROJECT NAME>&title=${name} created an account!&body=${isPremium?`They have signed up for Premium!`:`They signed up for the free plan`}`)
 })
 ```
+
+>
 
 ![notification informing the reader that a new user has signed up](PROJECT%20NAME%20notification.png)
 
