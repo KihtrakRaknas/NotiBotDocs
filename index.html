@@ -367,9 +367,6 @@
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/?project<span class="o">=</span>&lt;PROJECT NAME&gt;
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;</span><span class="dl">"</span><span class="p">)</span>
-<span class="c1">// Note: If you are using this code on a website, </span>
-<span class="c1">// make sure the site's CORS headers will allow the</span>
-<span class="c1">// request to go through.</span>
 </code></pre></div>
 <blockquote>
 <p>It&#39;s that simple!</p>
@@ -377,7 +374,9 @@
 
 <p>With the project name you choose during set up, you can make your first API call.</p>
 
-<p><img src="images/PROJECTNAMEnotification.png" alt="image of notification with no custom title or body" /></p>
+<p>You should get something like this:</p>
+
+<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="image of notification with no custom title or body" /></p>
 
 <aside class="notice">
 <em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification.
@@ -386,16 +385,8 @@
 <blockquote>
 <p>To send a notification:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/?project<span class="o">=</span>&lt;PROJECT NAME&gt;<span class="se">\</span>
-&amp;title<span class="o">=</span>&lt;OPTIONAL NOTIFICATION TITLE&gt;<span class="se">\</span>
-&amp;body<span class="o">=</span>&lt;OPTIONAL NOTIFICATION BODY&gt;<span class="se">\</span>
-&amp;webhook<span class="o">=</span>&lt;OPTIONAL WEBHOOK&gt;<span class="se">\</span>
-&amp;webhookParam<span class="o">=</span>&lt;<span class="nb">true</span>/false&gt;
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;</span><span class="se">\</span><span class="s2">
-&amp;title=&lt;OPTIONAL NOTIFICATION TITLE&gt;</span><span class="se">\</span><span class="s2">
-&amp;body=&lt;OPTIONAL NOTIFICATION BODY&gt;</span><span class="se">\</span><span class="s2">
-&amp;webhook=&lt;OPTIONAL WEBHOOK&gt;</span><span class="se">\</span><span class="s2">
-&amp;webhookParam=&lt;true/false&gt;</span><span class="dl">"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl https://n.kihtrak.com/?project<span class="o">=</span>&lt;PROJECT NAME&gt;&amp;title<span class="o">=</span>&lt;OPTIONAL NOTIFICATION TITLE&gt;&amp;body<span class="o">=</span>&lt;OPTIONAL NOTIFICATION BODY&gt;&amp;webhook<span class="o">=</span>&lt;OPTIONAL WEBHOOK&gt;&amp;webhookParam<span class="o">=</span>&lt;<span class="nb">true</span>/false&gt;
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=&lt;OPTIONAL NOTIFICATION TITLE&gt;&amp;body=&lt;OPTIONAL NOTIFICATION BODY&gt;&amp;webhook=&lt;OPTIONAL WEBHOOK&gt;&amp;webhookParam=&lt;true/false&gt;</span><span class="dl">"</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -472,17 +463,8 @@
 
 <p>With NotiBot, you will be instantly notified if an error does arise later on.</p>
 <h2 id='get-notified-of-visitors-or-milestones'>Get Notified of Visitors or Milestones</h2>
-<blockquote>
-<p>Get notified of visitors: </p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="c1">// handle account creation...</span>
-  <span class="kd">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">isPremium</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span>
-  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> created an account!&amp;body=</span><span class="p">${</span><span class="nx">isPremium</span><span class="p">?</span><span class="s2">`They have signed up for Premium!`</span><span class="p">:</span><span class="s2">`They signed up for the free plan`</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></div>
+<p>You can use NotiBot for easy growth monitoring. </p>
+<h3 id='know-exactly-when-to-pop-open-that-bottle-of-champaign'>Know exactly when to pop open that bottle of champaign 🍾!</h3>
 <blockquote>
 <p>Get notified of milestones: </p>
 </blockquote>
@@ -497,11 +479,20 @@
   <span class="p">}</span>
 <span class="p">})</span>
 </code></pre></div>
-<p>You can use NotiBot for easy growth monitoring. </p>
-
-<p>Know exactly when to pop open that bottle of champaign 🍾! </p>
-
-<p>Or know whether that friend who swore they would download your app actually installed it 😉.</p>
+<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification celebrating an app milestone" /></p>
+<h3 id='or-know-whether-that-friend-who-swore-they-would-download-your-app-actually-installed-it'>Or know whether that friend who swore they would download your app actually installed it 😉.</h3>
+<blockquote>
+<p>Get notified of visitors: </p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// handle account creation...</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">isPremium</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> created an account!&amp;body=</span><span class="p">${</span><span class="nx">isPremium</span><span class="p">?</span><span class="s2">`They have signed up for Premium!`</span><span class="p">:</span><span class="s2">`They signed up for the free plan`</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification informing the reader that a new user has signed up" /></p>
 <h2 id='automation'>Automation</h2>
 <blockquote>
 <p>Know when a task finishes: </p>
