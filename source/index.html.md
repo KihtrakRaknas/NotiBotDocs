@@ -38,16 +38,15 @@ curl https://n.kihtrak.com/?project=<PROJECT NAME>
 
 ```javascript
 fetch("https://n.kihtrak.com/?project=<PROJECT NAME>")
-// Note: If you are using this code on a website, 
-// make sure the site's CORS headers will allow the
-// request to go through.
 ```
 
 > It's that simple!
 
 With the project name you choose during set up, you can make your first API call.
 
-![image of notification with no custom title or body](images/PROJECT NAME notification.png)
+You should get something like this:
+
+![image of notification with no custom title or body](PROJECT%20NAME%20notification.png)
 
 <aside class="notice">
 <em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification.
@@ -59,19 +58,11 @@ With the project name you choose during set up, you can make your first API call
 > To send a notification:
 
 ```shell
-curl https://n.kihtrak.com/?project=<PROJECT NAME>\
-&title=<OPTIONAL NOTIFICATION TITLE>\
-&body=<OPTIONAL NOTIFICATION BODY>\
-&webhook=<OPTIONAL WEBHOOK>\
-&webhookParam=<true/false>
+curl https://n.kihtrak.com/?project=<PROJECT NAME>&title=<OPTIONAL NOTIFICATION TITLE>&body=<OPTIONAL NOTIFICATION BODY>&webhook=<OPTIONAL WEBHOOK>&webhookParam=<true/false>
 ```
 
 ```javascript
-fetch("https://n.kihtrak.com/?project=<PROJECT NAME>\
-&title=<OPTIONAL NOTIFICATION TITLE>\
-&body=<OPTIONAL NOTIFICATION BODY>\
-&webhook=<OPTIONAL WEBHOOK>\
-&webhookParam=<true/false>")
+fetch("https://n.kihtrak.com/?project=<PROJECT NAME>&title=<OPTIONAL NOTIFICATION TITLE>&body=<OPTIONAL NOTIFICATION BODY>&webhook=<OPTIONAL WEBHOOK>&webhookParam=<true/false>")
 ```
 
 > The above command returns JSON structured like this:
@@ -122,7 +113,7 @@ webhookParam | false | If true, the recipient will be able to type out a string 
 ``` javascript
 try {
   // Example of code with error:
-	nonExistant.prop
+  nonExistant.prop
 }catch(e){
   fetch(`https://n.kihtrak.com/?project=<PROJECT NAME>&title=Error!&body=${e.toString()}`)
 }
@@ -136,7 +127,29 @@ With NotiBot, you will be instantly notified if an error does arise later on.
 
 ## Get Notified of Visitors or Milestones
 
-> Get notified of visitors: 
+You can use NotiBot for easy growth monitoring. 
+
+### Know exactly when to pop open that bottle of champaign 🍾! 
+
+``` shell
+# example is in the javascript tab
+```
+
+``` javascript
+// let totalUsers be some kind of persistent storage variable
+// assuming you are using something like express:
+app.post('/createUser', (req, res) => {
+  // handle account creation...
+  totalUsers++
+  if(totalUsers%100 == 0){
+    fetch(`https://n.kihtrak.com/?project=<PROJECT NAME>&title=You hit ${totalUsers} total users!&body=🎉🎈🥳`)
+  }
+})
+```
+
+![notification celebrating an app milestone](PROJECT%20NAME%20notification.png)
+
+### Or know whether that friend who swore they would download your app actually installed it 😉.
 
 ``` shell
 # example is in the javascript tab
@@ -151,33 +164,15 @@ app.post('/createUser', (req, res) => {
 })
 ```
 
-> Get notified of milestones: 
-
-``` shell
-# example is in the javascript tab
-```
-
-``` javascript
-// assuming you are using something like express:
-// let totalUsers be some kind of persistent storage variable
-app.post('/createUser', (req, res) => {
-  // handle account creation...
-  totalUsers++
-  if(totalUsers%100 == 0){
-    fetch(`https://n.kihtrak.com/?project=<PROJECT NAME>&title=You hit ${totalUsers} total users!&body=🎉🎈🥳`)
-  }
-})
-```
-
-You can use NotiBot for easy growth monitoring. 
-
-Know exactly when to pop open that bottle of champaign 🍾! 
-
-Or know whether that friend who swore they would download your app actually installed it 😉.
+![notification informing the reader that a new user has signed up](PROJECT%20NAME%20notification.png)
 
 ## Automation
 
-> Know when a task finishes: 
+NotiBot is built first and foremost for developers, so you can integrate it into your work, hobbies or daily life in anyway your heart desires. 
+
+Especially when automating tasks, it can be useful to be able to get reliable and timely information. NotiBot makes keeping yourself in the loop easy.
+
+### Know when a task finishes: 
 
 ``` shell
 # example is in the javascript tab
@@ -189,7 +184,9 @@ makeMeSomeHotCoco()
 ```
 >
 
-> Start a task: 
+![notification informing the user that their coco is ready to drink](PROJECT%20NAME%20notification.png)
+
+### Start a task: 
 
 ``` shell
 # example is in the javascript tab
@@ -206,6 +203,4 @@ cron.schedule('0 8 * * *', () => { // Run every day at 8am
 ```
 > You will get a prompt for hot coco every day at 8am. The notification will also include a quick action that will make a call to whatever webhook you specified.
 
-NotiBot is built first and foremost for developers, so you can integrate it into your work, hobbies or daily life in anyway your heart desires. 
-
-Especially when automating tasks, it can be useful to be able to get reliable and timely information. NotiBot makes keeping yourself in the loop easy.
+![notification allowing the user to trigger their coco machine remotely](PROJECT%20NAME%20notification.png)
