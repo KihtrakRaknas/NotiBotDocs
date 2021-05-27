@@ -450,7 +450,7 @@
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="k">try</span> <span class="p">{</span>
   <span class="c1">// Example of code with error:</span>
-    <span class="nx">nonExistant</span><span class="p">.</span><span class="nx">prop</span>
+  <span class="nx">nonExistant</span><span class="p">.</span><span class="nx">prop</span>
 <span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
   <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=Error!&amp;body=</span><span class="p">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">toString</span><span class="p">()}</span><span class="s2">`</span><span class="p">)</span>
 <span class="p">}</span>
@@ -464,13 +464,9 @@
 <p>With NotiBot, you will be instantly notified if an error does arise later on.</p>
 <h2 id='get-notified-of-visitors-or-milestones'>Get Notified of Visitors or Milestones</h2>
 <p>You can use NotiBot for easy growth monitoring. </p>
-<h3 id='know-exactly-when-to-pop-open-that-bottle-of-champaign'>Know exactly when to pop open that bottle of champaign 🍾!</h3>
-<blockquote>
-<p>Get notified of milestones: </p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
-<span class="c1">// let totalUsers be some kind of persistent storage variable</span>
+<h3 id='know-exactly-when-to-pop-open-that-bottle-of-champaign'>Know exactly when to pop open that bottle of champaign 🍾!</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// let totalUsers be some kind of persistent storage variable</span>
+<span class="c1">// assuming you are using something like express:</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// handle account creation...</span>
   <span class="nx">totalUsers</span><span class="o">++</span>
@@ -480,11 +476,7 @@
 <span class="p">})</span>
 </code></pre></div>
 <p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification celebrating an app milestone" /></p>
-<h3 id='or-know-whether-that-friend-who-swore-they-would-download-your-app-actually-installed-it'>Or know whether that friend who swore they would download your app actually installed it 😉.</h3>
-<blockquote>
-<p>Get notified of visitors: </p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+<h3 id='or-know-whether-that-friend-who-swore-they-would-download-your-app-actually-installed-it'>Or know whether that friend who swore they would download your app actually installed it 😉.</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// handle account creation...</span>
@@ -494,17 +486,18 @@
 </code></pre></div>
 <p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification informing the reader that a new user has signed up" /></p>
 <h2 id='automation'>Automation</h2>
-<blockquote>
-<p>Know when a task finishes: </p>
-</blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+<p>NotiBot is built first and foremost for developers, so you can integrate it into your work, hobbies or daily life in anyway your heart desires. </p>
+
+<p>Especially when automating tasks, it can be useful to be able to get reliable and timely information. NotiBot makes keeping yourself in the loop easy.</p>
+<h3 id='know-when-a-task-finishes'>Know when a task finishes:</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">makeMeSomeHotCoco</span><span class="p">()</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">(()</span><span class="o">=&gt;</span><span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=Hot coco finished!&amp;body=Time to drink up!\n☕☕☕`</span><span class="p">))</span>
 </code></pre></div>
 <blockquote>
-<p>Start a task: </p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+
+<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification informing the user that their coco is ready to drink" /></p>
+<h3 id='start-a-task'>Start a task:</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/makeCoco</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Code to make Coco...</span>
@@ -517,9 +510,7 @@
 <p>You will get a prompt for hot coco every day at 8am. The notification will also include a quick action that will make a call to whatever webhook you specified.</p>
 </blockquote>
 
-<p>NotiBot is built first and foremost for developers, so you can integrate it into your work, hobbies or daily life in anyway your heart desires. </p>
-
-<p>Especially when automating tasks, it can be useful to be able to get reliable and timely information. NotiBot makes keeping yourself in the loop easy.</p>
+<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification allowing the user to trigger their coco machine remotely" /></p>
 
       </div>
       <div class="dark-box">
