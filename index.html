@@ -377,6 +377,8 @@
 
 <p>With the project name you choose during set up, you can make your first API call.</p>
 
+<p><img src="images/images/PROJECTNAMEnotification.png" alt="image of notification with no custom title or body" /></p>
+
 <aside class="notice">
 <em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification.
 </aside>
@@ -478,7 +480,7 @@
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// handle account creation...</span>
   <span class="kd">const</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">isPremium</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span>
-  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> created an account!&amp;body=</span><span class="p">${</span><span class="nx">isPremium</span><span class="p">?</span><span class="s2">`They are have signed up for Premium!`</span><span class="p">:</span><span class="s2">`They signed up for the free plan`</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+  <span class="nx">fetch</span><span class="p">(</span><span class="s2">`https://n.kihtrak.com/?project=&lt;PROJECT NAME&gt;&amp;title=</span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> created an account!&amp;body=</span><span class="p">${</span><span class="nx">isPremium</span><span class="p">?</span><span class="s2">`They have signed up for Premium!`</span><span class="p">:</span><span class="s2">`They signed up for the free plan`</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
 <span class="p">})</span>
 </code></pre></div>
 <blockquote>
