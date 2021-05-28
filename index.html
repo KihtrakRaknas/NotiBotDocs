@@ -198,6 +198,10 @@
       code {
         white-space: pre-wrap;
       }
+
+      .logo {
+        margin:10px;
+      }
     </style>
     <style media="print">
       * {
@@ -302,7 +306,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-fb039113.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="shell">shell</a>
@@ -346,8 +350,8 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='https://notibot.kihtrak.com'>Open Web App</a></li>
-            <li><a href='https://notibot.kihtrak.com'>Download iOS App</a></li>
-            <li><a href='https://notibot.kihtrak.com'>Download Android App</a></li>
+            <li><a href='https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40kihtrakraknas/NotiBot-a7fb7ade-d7e8-4822-aeef-d1bd2806cb2a-archive.ipa'>Download iOS App</a></li>
+            <li><a href='https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40kihtrakraknas/NotiBot-673a92a2be124a88aa3d23d7017d2d09-signed.apk'>Download Android App</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -356,7 +360,7 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the NotiBot API! You can use our API to programmatically send you or your team notifications.</p>
 
-<p>Please download the app for the best possible experience. It is available for both <a href="https://notibot.kihtrak.com">iOS</a> and <a href="https://notibot.kihtrak.com">android</a>.</p>
+<p>Please download the app for the best possible experience. It is available for both <a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40kihtrakraknas/NotiBot-a7fb7ade-d7e8-4822-aeef-d1bd2806cb2a-archive.ipa">iOS</a> and <a href="https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40kihtrakraknas/NotiBot-673a92a2be124a88aa3d23d7017d2d09-signed.apk">android</a>.</p>
 <h1 id='set-up'>Set-Up</h1>
 <p>Using either the app or <a href="https://notibot.kihtrak.com">web app</a>, create a new project. </p>
 
@@ -376,7 +380,7 @@
 
 <p>You should get something like this:</p>
 
-<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="image of notification with no custom title or body" /></p>
+<p><img src="images/ProjectNameNotification-b0e15e60.png" alt="notification with no custom title or body" /></p>
 
 <aside class="notice">
 <em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification.
@@ -391,22 +395,15 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">A</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">there</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">error</span><span class="w">
+    </span><span class="nl">"notificationsSent"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"notificationsSentSuccessfully"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"nonCriticalErrors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"Errors are very common when sending notifications, anything appearing here can be safely ignored"</span><span class="p">,</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://n.kihtrak.com/</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -462,9 +459,11 @@
 <p>Error catching and logging is only useful if someone is checking those logs. Many edge case bugs may be missed because this arise much later in a project&#39;s life span. </p>
 
 <p>With NotiBot, you will be instantly notified if an error does arise later on.</p>
+
+<p><img src="images/ErrorNotification-69975140.png" alt="notification with error message" /></p>
 <h2 id='get-notified-of-visitors-or-milestones'>Get Notified of Visitors or Milestones</h2>
 <p>You can use NotiBot for easy growth monitoring. </p>
-<h3 id='know-exactly-when-to-pop-open-that-bottle-of-champaign'>Know exactly when to pop open that bottle of champaign 🍾!</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
+<h3 id='know-exactly-when-to-pop-open-that-bottle-of-champagne'>Know exactly when to pop open that bottle of champagne 🍾!</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// let totalUsers be some kind of persistent storage variable</span>
 <span class="c1">// assuming you are using something like express:</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -478,7 +477,7 @@
 <blockquote>
 </blockquote>
 
-<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification celebrating an app milestone" /></p>
+<p><img src="images/TotalUsersNotification-b6085a7e.png" alt="notification celebrating an app milestone" /></p>
 <h3 id='or-know-whether-that-friend-who-swore-they-would-download-your-app-actually-installed-it'>Or know whether that friend who swore they would download your app actually installed it 😉.</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/createUser</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -490,7 +489,7 @@
 <blockquote>
 </blockquote>
 
-<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification informing the reader that a new user has signed up" /></p>
+<p><img src="images/UserSignedUpNotification-be8f7b5d.png" alt="notification informing the reader that a new user has signed up" /></p>
 <h2 id='automation'>Automation</h2>
 <p>NotiBot is built first and foremost for developers, so you can integrate it into your work, hobbies or daily life in anyway your heart desires. </p>
 
@@ -502,7 +501,7 @@
 <blockquote>
 </blockquote>
 
-<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification informing the user that their coco is ready to drink" /></p>
+<p><img src="images/HotCocoFinishedNotification-d60083c2.png" alt="notification informing the user that their coco is ready to drink" /></p>
 <h3 id='start-a-task'>Start a task:</h3><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># example is in the javascript tab</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="c1">// assuming you are using something like express:</span>
 <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/makeCoco</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -516,7 +515,8 @@
 <p>You will get a prompt for hot coco every day at 8am. The notification will also include a quick action that will make a call to whatever webhook you specified.</p>
 </blockquote>
 
-<p><img src="images/PROJECT NAME notification-4496f4e1.png" alt="notification allowing the user to trigger their coco machine remotely" /></p>
+<p><img src="images/WantHotCocoNotification-674da64a.png" alt="notification allowing the user to trigger their coco machine remotely" />
+<img src="images/WantHotCocoActions-8e569130.png" alt="actions allowing the user to trigger their coco machine remotely" /></p>
 
       </div>
       <div class="dark-box">
