@@ -7,8 +7,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://notibot.kihtrak.com'>Open Web App</a>
-  - <a href='https://notibot.kihtrak.com'>Download iOS App</a>
-  - <a href='https://notibot.kihtrak.com'>Download Android App</a>
+  - <a href='https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40kihtrakraknas/NotiBot-a7fb7ade-d7e8-4822-aeef-d1bd2806cb2a-archive.ipa'>Download iOS App</a>
+  - <a href='https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40kihtrakraknas/NotiBot-673a92a2be124a88aa3d23d7017d2d09-signed.apk'>Download Android App</a>
 
 search: true
 
@@ -19,7 +19,7 @@ code_clipboard: true
 
 Welcome to the NotiBot API! You can use our API to programmatically send you or your team notifications.
 
-Please download the app for the best possible experience. It is available for both [iOS](https://notibot.kihtrak.com) and [android](https://notibot.kihtrak.com).
+Please download the app for the best possible experience. It is available for both [iOS](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40kihtrakraknas/NotiBot-a7fb7ade-d7e8-4822-aeef-d1bd2806cb2a-archive.ipa) and [android](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40kihtrakraknas/NotiBot-673a92a2be124a88aa3d23d7017d2d09-signed.apk).
 
 # Set-Up
 
@@ -46,12 +46,11 @@ With the project name you choose during set up, you can make your first API call
 
 You should get something like this:
 
-![image of notification with no custom title or body](PROJECT%20NAME%20notification.png)
+![notification with no custom title or body](ProjectNameNotification.png)
 
 <aside class="notice">
 <em>project</em> is the only required URL parameter. Without any other parameters you will get a empty notification.
 </aside>
-
 
 ## Send a Custom Notification
 
@@ -68,22 +67,15 @@ fetch("https://n.kihtrak.com/?project=<PROJECT NAME>&title=<OPTIONAL NOTIFICATIO
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+    "success": true,
+    "error": null, // A string if there is an error
+    "notificationsSent": 1,
+    "notificationsSentSuccessfully": 1,
+    "nonCriticalErrors": [
+        "Errors are very common when sending notifications, anything appearing here can be safely ignored",
+    ]
+}
 ```
 
 ### HTTP Request
@@ -125,11 +117,13 @@ Error catching and logging is only useful if someone is checking those logs. Man
 
 With NotiBot, you will be instantly notified if an error does arise later on.
 
+![notification with error message](ErrorNotification.png)
+
 ## Get Notified of Visitors or Milestones
 
 You can use NotiBot for easy growth monitoring. 
 
-### Know exactly when to pop open that bottle of champaign 🍾! 
+### Know exactly when to pop open that bottle of champagne 🍾! 
 
 ``` shell
 # example is in the javascript tab
@@ -149,7 +143,7 @@ app.post('/createUser', (req, res) => {
 
 >
 
-![notification celebrating an app milestone](PROJECT%20NAME%20notification.png)
+![notification celebrating an app milestone](TotalUsersNotification.png)
 
 ### Or know whether that friend who swore they would download your app actually installed it 😉.
 
@@ -168,7 +162,7 @@ app.post('/createUser', (req, res) => {
 
 >
 
-![notification informing the reader that a new user has signed up](PROJECT%20NAME%20notification.png)
+![notification informing the reader that a new user has signed up](UserSignedUpNotification.png)
 
 ## Automation
 
@@ -188,7 +182,7 @@ makeMeSomeHotCoco()
 ```
 >
 
-![notification informing the user that their coco is ready to drink](PROJECT%20NAME%20notification.png)
+![notification informing the user that their coco is ready to drink](HotCocoFinishedNotification.png)
 
 ### Start a task: 
 
@@ -207,4 +201,5 @@ cron.schedule('0 8 * * *', () => { // Run every day at 8am
 ```
 > You will get a prompt for hot coco every day at 8am. The notification will also include a quick action that will make a call to whatever webhook you specified.
 
-![notification allowing the user to trigger their coco machine remotely](PROJECT%20NAME%20notification.png)
+![notification allowing the user to trigger their coco machine remotely](WantHotCocoNotification.png)
+![actions allowing the user to trigger their coco machine remotely](WantHotCocoActions.png)
