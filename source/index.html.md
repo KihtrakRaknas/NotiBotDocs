@@ -7,8 +7,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://notibot.kihtrak.com'>Open Web App</a>
-  - <a href='https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40kihtrakraknas/NotiBot-a7fb7ade-d7e8-4822-aeef-d1bd2806cb2a-archive.ipa'>Download iOS App</a>
-  - <a href='https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40kihtrakraknas/NotiBot-673a92a2be124a88aa3d23d7017d2d09-signed.apk'>Download Android App</a>
+  - <a href='https://apps.apple.com/us/app/notibot/id1568618783?mt=8'>Download iOS App</a>
+  - <a href='https://play.google.com/store/apps/details?id=com.kihtrak.NOTIBOT'>Download Android App</a>
 
 search: true
 
@@ -19,7 +19,7 @@ code_clipboard: true
 
 Welcome to the NotiBot API! You can use our API to programmatically send you or your team notifications.
 
-Please download the app for the best possible experience. It is available for both [iOS](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40kihtrakraknas/NotiBot-a7fb7ade-d7e8-4822-aeef-d1bd2806cb2a-archive.ipa) and [android](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40kihtrakraknas/NotiBot-673a92a2be124a88aa3d23d7017d2d09-signed.apk).
+Please download the app for the best possible experience. It is available for both [iOS](https://apps.apple.com/us/app/notibot/id1568618783?mt=8) and [android](https://play.google.com/store/apps/details?id=com.kihtrak.NOTIBOT).
 
 # Set-Up
 
