@@ -87,6 +87,7 @@ fetch("https://n.kihtrak.com/?project=<PROJECT NAME>&title=<OPTIONAL NOTIFICATIO
 Parameter | Default | Description
 --------- | ------- | -----------
 project | required | The name of the project this notification should be sent to.
+key | null | The API key for the project. API keys are disabled by default and must be enabled in project options.
 title | *project* | The title that appears on the notification.
 body | null | The body of the notification (the text under the title).
 webhook | null | A URL the webhook will go to. If this parameter isn't left empty the recipient of the notification will be provided with an option to make a call to the provided link. This can be useful if there are certain actions you would like to trigger remotely after receiving a notification.
